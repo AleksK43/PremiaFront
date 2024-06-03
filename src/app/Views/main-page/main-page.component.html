@@ -1,0 +1,50 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  <div class="vh-100 d-flex align-items-center position-fixed start-0 top-0" role="navigation">
+    <div class="p-2">
+      <div id="mainNav">
+        <ul class="list-unstyled rounded ms-2">
+            <li><a class="vlink rounded border-0" href="#"><i class="bi bi-house-door"></i> <span>Strona Główna</span></a></li>
+            <li><a class="vlink rounded" href="#"><i class="bi bi-grid"></i> <span>Repozytorium</span></a></li>
+            <li><a class="vlink rounded" href="#"><i class="bi bi-telephone"></i> <span>Książka Adresowa</span></a></li>
+            <li><a class="vlink rounded" href="#"><i class="bi bi-calendar3"></i> <span>Kalendarz Urlopów</span></a></li>
+            <li><a class="vlink rounded" href="#"><i class="bi bi-person-circle"></i> <span>Moje Projekty</span></a></li>
+            <li><a class="vlink rounded" href="#"><i class="bi bi-person"></i> <span>Użytkownicy</span></a></li>
+            <li><a class="vlink rounded" href="#"><i class="bi bi-images"></i> <span>Klienci</span></a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href=""><img src="https://develogic.pl/wp-content/uploads/2019/05/Develogic_RGB_Logo.png"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link mx-2 active" aria-current="page" href="#">Repozytorium</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="#">Moje Wnioski</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="#">Administracja</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="#">Wyloguj</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+    <div class="centered-element">
+      <router-outlet> </router-outlet>    
+    </div>
+ 
