@@ -1,0 +1,9 @@
+.has-error .form-control {
+    border-color: #a94442;
+  }
+  
+  .has-error .input-group-addon {
+    background-color: #a94442;
+    border-color: #a94442;
+  }
+  

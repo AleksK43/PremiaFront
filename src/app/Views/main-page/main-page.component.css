@@ -107,3 +107,6 @@ ul.list-unstyled {
   z-index: 1; /* Niższy z-index dla centered-element */
   overflow: visible;
 }
+.vlink {
+  cursor: pointer;
+}

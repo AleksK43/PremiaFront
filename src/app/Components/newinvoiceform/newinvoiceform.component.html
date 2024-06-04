@@ -1,0 +1,137 @@
+<div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="well form-horizontal">
+      <fieldset>
+        <legend>Contact Us Today!</legend>
+  
+        <div class="form-group" [ngClass]="{'has-error': contactForm?.get('first_name')?.valid && contactForm?.get('first_name')?.touched}">
+          <label class="col-md-4 control-label">First Name</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input formControlName="first_name" placeholder="First Name" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('last_name')?.valid && contactForm.get('last_name')?.touched}">
+          <label class="col-md-4 control-label">Last Name</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input formControlName="last_name" placeholder="Last Name" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('email')?.valid && contactForm.get('email')?.touched}">
+          <label class="col-md-4 control-label">E-Mail</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <input formControlName="email" placeholder="E-Mail Address" class="form-control" type="email">
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('phone')?.valid && contactForm.get('phone')?.touched}">
+          <label class="col-md-4 control-label">Phone #</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+              <input formControlName="phone" placeholder="(845)555-1212" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('address')?.valid && contactForm.get('address')?.touched}">
+          <label class="col-md-4 control-label">Address</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input formControlName="address" placeholder="Address" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('city')?.valid && contactForm.get('city')?.touched}">
+          <label class="col-md-4 control-label">City</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input formControlName="city" placeholder="City" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('state')?.valid && contactForm.get('state')?.touched}">
+          <label class="col-md-4 control-label">State</label>
+          <div class="col-md-4 selectContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+              <select formControlName="state" class="form-control selectpicker">
+                <option value="">Please select your state</option>
+                <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('zip')?.valid && contactForm.get('zip')?.touched}">
+          <label class="col-md-4 control-label">Zip Code</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input formControlName="zip" placeholder="Zip Code" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('website')?.valid && contactForm.get('website')?.touched}">
+          <label class="col-md-4 control-label">Website or domain name</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+              <input formControlName="website" placeholder="Website or domain name" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('hosting')?.valid && contactForm.get('hosting')?.touched}">
+          <label class="col-md-4 control-label">Do you have hosting?</label>
+          <div class="col-md-4">
+            <div class="radio">
+              <label>
+                <input type="radio" formControlName="hosting" value="yes"> Yes
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" formControlName="hosting" value="no"> No
+              </label>
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group" [ngClass]="{'has-error': !contactForm.get('comment')?.valid && contactForm.get('comment')?.touched}">
+          <label class="col-md-4 control-label">Project Description</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+              <textarea formControlName="comment" placeholder="Project Description" class="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+  
+        <div class="alert alert-success" role="alert" *ngIf="successMessage">{{ successMessage }}</div>
+  
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-warning">Send <span class="glyphicon glyphicon-send"></span></button>
+          </div>
+        </div>
+  
+      </fieldset>
+    </form>
+  </div>
+  
