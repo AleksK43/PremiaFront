@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MyprojectsComponent } from './Components/myprojects/myprojects.component';
 import { AdressbookComponent } from './Components/adressbook/adressbook.component';
 import { HolidaycalendarComponent } from './Components/holidaycalendar/holidaycalendar.component';
+import { AddcustomerComponent } from './Components/addcustomer/addcustomer.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { HolidaycalendarComponent } from './Components/holidaycalendar/holidayca
     MyprojectsComponent,
     AdressbookComponent,
     HolidaycalendarComponent,
+    AddcustomerComponent,
   ],
   imports: [
     BrowserModule,
