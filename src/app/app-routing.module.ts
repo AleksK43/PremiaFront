@@ -13,6 +13,7 @@ import { NewinvoiceformComponent } from './Components/newinvoiceform/newinvoicef
 import { HolidaycalendarComponent } from './Components/holidaycalendar/holidaycalendar.component';
 import { MyprojectsComponent } from './Components/myprojects/myprojects.component';
 import { AdressbookComponent } from './Components/adressbook/adressbook.component';
+import { AdmindashboardComponent } from './Components/admindashboard/admindashboard.component';
 
 
 
@@ -21,6 +22,7 @@ export const routes: Routes = [
  { path: 'register', component: RegisterFormComponent },
  { path: 'mainpage', component: MainPageComponent, children: [
   { path: 'users', component: UsersComponent },
+  { path: 'admindashboard', component: AdmindashboardComponent},
   { path: 'repository', component: RepositoryComponent },
   { path: 'customers', component: CustomersComponent },
   { path: 'Tasks', component: TasksComponent },

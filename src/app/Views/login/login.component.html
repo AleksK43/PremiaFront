@@ -3,16 +3,18 @@
       <div class="logo-container"><img src="https://develogic.pl/wp-content/uploads/2019/05/Develogic_RGB_Logo.png"></div>
       <div class="card bg-dark">
         <div class="card-body">
-          <form>
+          <form [formGroup]="loginForm">
             <div class="form-group">
               <label for="email" class="login-text">Login:</label>
-              <input type="email" class="form-control" id="email" placeholder="Wpisz Login">
+              <input formControlName ="email" type="email" class="form-control"  id="email" placeholder="email">
+              <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')" class="text-red-500 text-center">login jest wymagany</small>
             </div>
             <div class="form-group">
               <label for="password" class="login-text">Hasło:</label>
-              <input type="password" class="form-control" id="password" placeholder="Wpisz hasło">
+              <input formControlName ="password" type="password" class="form-control" id="password" placeholder="Wpisz hasło">
+              <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')" class="text-red-500 text-center">Hasło jest wymagane</small>
             </div>
-            <button type="submit" class="btn btn-one form-control">Zaloguj</button>
+            <button (click)="onLogin()" type="submit" class="btn btn-one form-control">Zaloguj</button>
             <button type="button" class="btn btn-one form-control" (click)="navigateToCreateAccount()">Poproś o stworzenie konta</button>
           </form>
         </div>

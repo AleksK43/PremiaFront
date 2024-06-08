@@ -21,6 +21,7 @@ import { MyprojectsComponent } from './Components/myprojects/myprojects.componen
 import { AdressbookComponent } from './Components/adressbook/adressbook.component';
 import { HolidaycalendarComponent } from './Components/holidaycalendar/holidaycalendar.component';
 import { AddcustomerComponent } from './Components/addcustomer/addcustomer.component';
+import { AdmindashboardComponent } from './Components/admindashboard/admindashboard.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AddcustomerComponent } from './Components/addcustomer/addcustomer.compo
     AdressbookComponent,
     HolidaycalendarComponent,
     AddcustomerComponent,
+    AdmindashboardComponent,
   ],
   imports: [
     BrowserModule,

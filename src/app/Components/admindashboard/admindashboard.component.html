@@ -1,0 +1,34 @@
+<table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Dział</th>
+        <th scope="col">Przełożony</th>
+        <th scope="col">Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of requests">
+        <td>{{ request.id }}</td>
+        <td>{{ request.name }}</td>
+        <td>{{ request.lastName }}</td>
+        <td>{{ request.department }}</td>
+        <td>{{ request.supervisorId }}</td>
+        <td>
+          <button class="btn btn-primary">Edytuj</button>
+          <button class="btn btn-danger">Usuń</button>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <div class="container-fluid bg-dark">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-white text-center py-4">Użytkownicy</h2>
+      </div>
+    </div>
+  </div>
+  

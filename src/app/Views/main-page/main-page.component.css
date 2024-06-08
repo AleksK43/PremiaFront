@@ -110,3 +110,7 @@ ul.list-unstyled {
 .vlink {
   cursor: pointer;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
