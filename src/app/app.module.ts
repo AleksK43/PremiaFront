@@ -7,7 +7,7 @@ import { LoginComponent } from './Views/login/login.component';
 import { MainPageComponent } from './Views/main-page/main-page.component';
 import { RegisterFormComponent } from './Components/register-form/register-form.component';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withFetch } from '@angular/common/http';
 import { LoadingInterceptor } from './Interceptor/loading.interceptor';
 import { AboutUsComponent } from './Views/about-us/about-us.component';
 import { InvoicegridComponent } from './Components/invoicegrid/invoicegrid.component';
@@ -26,6 +26,7 @@ import { TokenInterceptor } from './Interceptor/token.interceptor';
 import { AuthGuard } from './Guards/auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIInterceptor } from './Interceptor/APIInterceptor.interceptor';
+import { StaticsiteComponent } from './Components/staticsite/staticsite.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { APIInterceptor } from './Interceptor/APIInterceptor.interceptor';
     HolidaycalendarComponent,
     AddcustomerComponent,
     AdmindashboardComponent,
+    StaticsiteComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { APIInterceptor } from './Interceptor/APIInterceptor.interceptor';
     ReactiveFormsModule
   ],
   providers: [
+    provideHttpClient(withFetch()),
     provideClientHydration(),
     provideHttpClient(withInterceptorsFromDi()),
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

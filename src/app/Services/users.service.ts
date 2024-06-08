@@ -9,7 +9,6 @@ import { environment } from '../../environments/environment';
 })
 export class UsersService {
   constructor(private http: HttpClient) {  }
-  private BaseUrl: string = environment.apiUrl + '/Users';
 
   public getUsers(): Observable<Users[]>
   {

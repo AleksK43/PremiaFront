@@ -15,10 +15,12 @@ import { MyprojectsComponent } from './Components/myprojects/myprojects.componen
 import { AdressbookComponent } from './Components/adressbook/adressbook.component';
 import { AdmindashboardComponent } from './Components/admindashboard/admindashboard.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { StaticsiteComponent } from './Components/staticsite/staticsite.component';
 
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'site', component: StaticsiteComponent},
   { path: 'register', component: RegisterFormComponent },
   { path: 'mainpage', component: MainPageComponent, canActivate:[AuthGuard], children: [
    { path: 'users', component: UsersComponent, canActivateChild:[AuthGuard] },

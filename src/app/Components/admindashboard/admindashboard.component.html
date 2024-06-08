@@ -23,7 +23,6 @@
         <td>{{ request.supervisorId }}</td>
         <td>
             <button class="btn btn-success" (click)="approveRequest(request.id)">Zatwierdź</button>
-            <button class="btn btn-danger">Usuń</button> </td>
       </tr>
     </tbody>
   </table>
@@ -40,15 +39,19 @@
                   <th scope="col">Użytkownik</th>
                   <th scope="col">Stanowisko</th>
                   <th scope="col">E-mail</th>
-                  <th scope="col">Numer Telefonu</th>
-                  <th scope="col">Klienci</th>
-                  <th scope="col">SALARY</th>
+                  <th scope="col">Dział</th>
+                  <th scope="col">Akcje</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let user of Users"> 
                 <td>{{ user.name}}</td>
                 <td> {{ user.lastName}}</td>
+                <td> {{ user.email}}</td>
+                <td> {{ user.department}}</td>
+                <td>
+                  <button class="btn btn-success">Zatwierdź</button>
+                  <button class="btn btn-danger">Usuń</button> </td>
                 </tr>
 
               </tbody>
