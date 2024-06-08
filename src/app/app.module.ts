@@ -24,7 +24,8 @@ import { AddcustomerComponent } from './Components/addcustomer/addcustomer.compo
 import { AdmindashboardComponent } from './Components/admindashboard/admindashboard.component';
 import { TokenInterceptor } from './Interceptor/token.interceptor';
 import { AuthGuard } from './Guards/auth.guard';
-import { HTTP_INTERCEPTORS } from '@angular/common/http'; // Add this line
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { APIInterceptor } from './Interceptor/APIInterceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http'; // Add this line
     provideClientHydration(),
     provideHttpClient(withInterceptorsFromDi()),
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true}
   ],  
   bootstrap: [AppComponent]
 })

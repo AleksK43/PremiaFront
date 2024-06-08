@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "https://localhost:7185",
+      "target": "premiaappapi.azurewebsites.net/api",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"

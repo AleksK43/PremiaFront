@@ -34,6 +34,7 @@ export const routes: Routes = [
      { path: 'NewInvoiceForm', component: NewinvoiceformComponent, canActivateChild:[AuthGuard]}]
    },
   ]},
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
  ];
  
 
