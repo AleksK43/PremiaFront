@@ -6,5 +6,4 @@ export interface RegistrationRequest {
     supervisorId: number;
     email: string;
     passwordHash: string;
-    isApproved: boolean;
   }

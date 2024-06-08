@@ -14,27 +14,28 @@ import { HolidaycalendarComponent } from './Components/holidaycalendar/holidayca
 import { MyprojectsComponent } from './Components/myprojects/myprojects.component';
 import { AdressbookComponent } from './Components/adressbook/adressbook.component';
 import { AdmindashboardComponent } from './Components/admindashboard/admindashboard.component';
-
+import { AuthGuard } from './Guards/auth.guard';
 
 
 export const routes: Routes = [
- { path: 'login', component: LoginComponent },
- { path: 'register', component: RegisterFormComponent },
- { path: 'mainpage', component: MainPageComponent, children: [
-  { path: 'users', component: UsersComponent },
-  { path: 'admindashboard', component: AdmindashboardComponent},
-  { path: 'repository', component: RepositoryComponent },
-  { path: 'customers', component: CustomersComponent },
-  { path: 'Tasks', component: TasksComponent },
-  { path: 'holiday', component: HolidaycalendarComponent},
-  { path: 'adress', component: AdressbookComponent},
-  { path: 'myprojects', component: MyprojectsComponent},
-  { path: '', component: InvoicegridComponent},
-  { path: 'invoicegrid', component: InvoicegridComponent, children: [
-    { path: 'NewInvoiceForm', component: NewinvoiceformComponent}]
-  },
-   ]},
-];
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterFormComponent },
+  { path: 'mainpage', component: MainPageComponent, canActivate:[AuthGuard], children: [
+   { path: 'users', component: UsersComponent, canActivateChild:[AuthGuard] },
+   { path: 'admindashboard', component: AdmindashboardComponent, canActivateChild:[AuthGuard] },
+   { path: 'repository', component: RepositoryComponent, canActivateChild:[AuthGuard] },
+   { path: 'customers', component: CustomersComponent, canActivateChild:[AuthGuard] },
+   { path: 'Tasks', component: TasksComponent, canActivateChild:[AuthGuard] },
+   { path: 'holiday', component: HolidaycalendarComponent, canActivateChild:[AuthGuard] },
+   { path: 'adress', component: AdressbookComponent, canActivateChild:[AuthGuard] },
+   { path: 'myprojects', component: MyprojectsComponent, canActivateChild:[AuthGuard] },
+   { path: '', component: InvoicegridComponent, canActivateChild:[AuthGuard] },
+   { path: 'invoicegrid', component: InvoicegridComponent, canActivateChild:[AuthGuard], children: [
+     { path: 'NewInvoiceForm', component: NewinvoiceformComponent, canActivateChild:[AuthGuard]}]
+   },
+  ]},
+ ];
+ 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

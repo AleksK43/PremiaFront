@@ -14,6 +14,7 @@ export class RegisterFormComponent implements OnInit {
 
   supervisorList: any[] = [];
   registrationForm!: FormGroup;
+  formErrors: any = {};
 
   constructor(private router: Router,
     private formBuilder: FormBuilder,
@@ -26,6 +27,7 @@ export class RegisterFormComponent implements OnInit {
     this.registrationForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
+      password: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       department: ['', Validators.required],
       supervisorId: ['', Validators.required]
@@ -43,15 +45,14 @@ export class RegisterFormComponent implements OnInit {
         }
       );
   }
-
   onSubmit(): void {
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
   
-      // Tworzenie obiektu RegistrationRequest tylko z niezbędnymi danymi
       const registrationRequestData = {
         name: formData.first_name,
         lastName: formData.last_name,
+        password: formData.password,
         email: formData.email,
         department: formData.department,
         supervisorId: formData.supervisorId
@@ -64,12 +65,16 @@ export class RegisterFormComponent implements OnInit {
             this.router.navigate(['login']);
           },
           (error) => {
-            console.error('Error submitting registration request:', error);
-            // Obsługa błędu
+            console.error('Validation errors:', error.error);
+            if (error.error.errors) {
+              this.formErrors = error.error.errors;
+            } else {
+              console.error('Error submitting registration request:', error);
+            }
           }
         );
     } else {
-      // Obsługa przypadku, gdy formularz jest nieprawidłowy
+      console.error('Form is invalid');
     }
   }
 }

@@ -1,60 +1,75 @@
-
-    <div class="centered-form">
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="well form-horizontal" action=" " method="post" id="contact_form">
-            <fieldset>
-                <legend>Wyślij Prośbę O Utworzenie Konta</legend>
-                <div class="form-group">
-                    <label class="control-label">Imie</label>
-                    <div class="inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="first_name" placeholder="Imie" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Nazwisko</label>
-                    <div class="inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="last_name" placeholder="Nazwisko" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">E-Mail</label>
-                    <div class="inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input name="email" placeholder="E-Mail" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Dział</label>
-                    <div class="inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-                            <input name="department" placeholder="Dział" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Przełożony</label>
-                    <div class="selectContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <select formControlName="supervisorId" class="form-control">
-                                <option *ngFor="let supervisor of supervisorList" [value]="supervisor.id">{{ supervisor.username }}</option>
-                              </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-one form-control">Wyslij</button>     
-                    </div>
-                </div>
-            </fieldset>
-        </form>
-    </div>
+<div class="centered-form">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="well form-horizontal" id="contact_form">
+      <fieldset>
+        <legend>Wyślij Prośbę O Utworzenie Konta</legend>
+        <div class="form-group" [ngClass]="{'has-error': formErrors['first_name']}">
+          <label class="control-label">Imie</label>
+          <div class="inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input formControlName="first_name" placeholder="Imie" class="form-control" type="text">
+            </div>
+            <div *ngIf="formErrors['first_name']" class="help-block">{{ formErrors['first_name'] }}</div>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': formErrors['last_name']}">
+          <label class="control-label">Nazwisko</label>
+          <div class="inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input formControlName="last_name" placeholder="Nazwisko" class="form-control" type="text">
+            </div>
+            <div *ngIf="formErrors['last_name']" class="help-block">{{ formErrors['last_name'] }}</div>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': formErrors['password']}">
+          <label class="control-label">Hasło</label>
+          <div class="inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input formControlName="password" placeholder="Hasło" class="form-control" type="password">
+            </div>
+            <div *ngIf="formErrors['password']" class="help-block">{{ formErrors['password'] }}</div>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': formErrors['email']}">
+          <label class="control-label">E-Mail</label>
+          <div class="inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <input formControlName="email" placeholder="E-Mail" class="form-control" type="email">
+            </div>
+            <div *ngIf="formErrors['email']" class="help-block">{{ formErrors['email'] }}</div>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': formErrors['department']}">
+          <label class="control-label">Dział</label>
+          <div class="inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+              <input formControlName="department" placeholder="Dział" class="form-control" type="text">
+            </div>
+            <div *ngIf="formErrors['department']" class="help-block">{{ formErrors['department'] }}</div>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': formErrors['supervisorId']}">
+          <label class="control-label">Przełożony</label>
+          <div class="selectContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <select formControlName="supervisorId" class="form-control">
+                <option *ngFor="let supervisor of supervisorList" [value]="supervisor.id">{{ supervisor.username }}</option>
+              </select>
+            </div>
+            <div *ngIf="formErrors['supervisorId']" class="help-block">{{ formErrors['supervisorId'] }}</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="text-center">
+            <button type="submit" class="btn btn-one form-control">Wyślij</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  

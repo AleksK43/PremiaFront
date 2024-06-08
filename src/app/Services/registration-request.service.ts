@@ -15,11 +15,11 @@ export class RegistrationRequestService {
     return this.http.get<RegistrationRequest[]>(this.baseUrl);
   }
 
-  approveRequest(requestId: number): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}/${requestId}`, { isApproved: true });
+  approveRequest(id: number): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/${id}`, null);
   }
   
-  createRegistrationRequest(formData: any): Observable<any> {
-    return this.http.post<any>(this.baseUrl, formData);
+  createRegistrationRequest(data: any): Observable<any> {
+    return this.http.post(this.baseUrl, data);
   }
 }

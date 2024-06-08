@@ -7,7 +7,7 @@ import { LoginComponent } from './Views/login/login.component';
 import { MainPageComponent } from './Views/main-page/main-page.component';
 import { RegisterFormComponent } from './Components/register-form/register-form.component';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { LoadingInterceptor } from './Interceptor/loading.interceptor';
 import { AboutUsComponent } from './Views/about-us/about-us.component';
 import { InvoicegridComponent } from './Components/invoicegrid/invoicegrid.component';
@@ -22,6 +22,9 @@ import { AdressbookComponent } from './Components/adressbook/adressbook.componen
 import { HolidaycalendarComponent } from './Components/holidaycalendar/holidaycalendar.component';
 import { AddcustomerComponent } from './Components/addcustomer/addcustomer.component';
 import { AdmindashboardComponent } from './Components/admindashboard/admindashboard.component';
+import { TokenInterceptor } from './Interceptor/token.interceptor';
+import { AuthGuard } from './Guards/auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http'; // Add this line
 
 @NgModule({
   declarations: [
@@ -47,14 +50,14 @@ import { AdmindashboardComponent } from './Components/admindashboard/admindashbo
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),
-   { provide: HTTP_INTERCEPTORS, useClass: 
-    LoadingInterceptor, multi:true }
-  ],
+    provideHttpClient(withInterceptorsFromDi()),
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+  ],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
